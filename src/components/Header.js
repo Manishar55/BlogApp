@@ -9,6 +9,6 @@ function Header() {
       </header>
     </div>
   )
-}
+} 
 
 export default Header

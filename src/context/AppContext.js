@@ -14,14 +14,14 @@ export default function AppContextProvider({children}){
     //data filing
     async function fetchBlogPosts(page=1) {
         setLoading(true);
-        let url=`${baseUrl}?page=${page}`
+        let url=`${baseUrl}?page=${page}`;
 
         try{
             const result= await fetch(url);
             const data=await result.json();
             console.log(data);
             setPage(data.page);
-            setPosts(data.page);
+            setPosts(data.posts);
             setTotalPages(data.totalPages)
             
         }
