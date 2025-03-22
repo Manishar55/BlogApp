@@ -3,7 +3,11 @@ import React from 'react'
 
 function Header() {
   return (
-    <div>Header</div>
+    <div>
+      <header>
+        <h1>BLOGS</h1>
+      </header>
+    </div>
   )
 }
 

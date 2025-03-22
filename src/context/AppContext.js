@@ -4,7 +4,7 @@ import {baseUrl} from "../baseUrl"
 
 export const AppContext=createContext(); //step1 -> create component
 
-function AppContextProvider({children}){
+export default function AppContextProvider({children}){
 
     const [loading, setLoading]=useState(false);
     const[posts, setPosts]=useState([]);
@@ -17,7 +17,7 @@ function AppContextProvider({children}){
         let url=`${baseUrl}?page=${page}`
 
         try{
-            const res= await fetch(url);
+            const result= await fetch(url);
             const data=await result.json();
             console.log(data);
             setPage(data.page);
@@ -33,7 +33,10 @@ function AppContextProvider({children}){
         }
         setLoading(false);
     }
-
+    function handlePageChange(page){
+        setPage(page);
+        fetchBlogPosts(page);
+    }
     const value={
         posts,
         setPosts,
@@ -42,7 +45,9 @@ function AppContextProvider({children}){
         page,
         setPage,
         totalPages,
-        setTotalPages
+        setTotalPages,
+        fetchBlogPosts,
+        handlePageChange
     };
 
     ////step2=> create provider and apply provider
