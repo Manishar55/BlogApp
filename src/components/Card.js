@@ -8,7 +8,7 @@ function Card({post}) {
         <p className='title font-bold text-xl text-rose-900' >
             {post.title}
         </p>
-        <p className="italic mt-[5px]">By <span>{post.author}</span>on <span className="underline font-bold ">{post.category}</span></p>
+        <p className="italic mt-[3px]">By <span>{post.author}</span>on <span className="underline font-bold ">{post.category}</span></p>
 
         <p className="mb-[15px]">Posted on {post.date}</p>
         <p>{post.content}</p>

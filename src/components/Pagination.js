@@ -5,17 +5,24 @@ import { AppContext } from '../context/AppContext'
 function Pagination() {
   const {page, handlePageChange, totalPages} =useContext(AppContext); 
   return (
-    <div>
-      <div>
-        { page>1 &&
-          (<button onClick={()=>handlePageChange(page-1)}>Previous</button>)
+    <div className='w-full flex justify-center items-center border-2 fixed bottom-0 bg-white'>
+      <div className='flex  w-11/12 max-w-[670px] justify-between py-2'>
+      <div className='flex gap-x-2'>
+      { page > 1 &&
+          (<button
+            className='rounded-md px-5 py-2 border-2'
+            onClick={()=>handlePageChange(page-1)}>Previous</button>)
         }
 
         {
           page < totalPages && 
-          (<button onClick={()=>handlePageChange(page+1)}>Next</button>)
+          (<button 
+            className='rounded-md px-5 py-2 border-2'
+            onClick={()=>handlePageChange(page+1)}>Next</button>)
         }
-        <p>Page{page} of {totalPages}</p>
+      </div>
+       
+      <p className='font-bold text-sm'>Page {page} of {totalPages}</p>
       </div>
     </div>
   )
