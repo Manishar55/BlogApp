@@ -5,14 +5,14 @@ import React from 'react'
 function Card({post}) {
   return (
     <div>
-        <p className='title' >
+        <p className='title font-bold text-xl text-rose-900' >
             {post.title}
         </p>
-        <p>By <span>{post.author}</span>on <span>{post.category}</span></p>
+        <p className="italic mt-[5px]">By <span>{post.author}</span>on <span className="underline font-bold ">{post.category}</span></p>
 
-        <p>Posted on {post.date}</p>
+        <p className="mb-[15px]">Posted on {post.date}</p>
         <p>{post.content}</p>
-        <div>
+        <div className="text-blue-600 underline text-sm mt-[12px] flex gap-x-2">
             {post.tags.map((tag, index)=>{
                 return <span key={index}>{`#${tag}`}</span>
             })}

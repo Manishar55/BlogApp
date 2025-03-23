@@ -12,7 +12,7 @@ function Blogs() {
   console.log("Post are  ", posts);
 // Pst mai data hi nhi aa raha hia 
   return (
-    <div>
+    <div className='w-11/12 max-w-[630px] py-3 flex flex-col gap-y-6'>
       {
         loading ? (<Spinner/>) : (
          posts.length===0 ? (<div><p>No post found</p></div>) : 
