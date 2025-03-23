@@ -4,7 +4,7 @@ import Pagination from "./components/Pagination"
 import Header from "./components/Header"
 import { useContext, useEffect } from "react";
 import { AppContext } from "./context/AppContext";
-// import "./App.css"
+import "./App.css"
 
 
 export default function App() {
