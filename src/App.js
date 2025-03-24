@@ -6,6 +6,10 @@ import { useContext, useEffect } from "react";
 import {Route, Routes, useLocation, useSearchParams} from "react-router-dom"
 import { AppContext } from "./context/AppContext";
 import "./App.css"
+import Home from "./Pages/Home"
+import BlogPage from "./Pages/BlogPage";
+import CategoryPage from "./Pages/CategoryPage"
+import TagPage from "./Pages/TagPage"
 
 
 export default function App() {
@@ -51,8 +55,8 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/blog/:blogId" element={<BlogPage/>}/>
-      <Route path="/tags/:tag" element={<Tag/>}/>
-      <Route path="/categories/:category" element={<Category/>}/>
+      <Route path="/tags/:tag" element={<TagPage/>}/>
+      <Route path="/categories/:category" element={<CategoryPage/>}/>
     </Routes>
   );
 }

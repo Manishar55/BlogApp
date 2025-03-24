@@ -4,6 +4,8 @@ import Blogs from '../components/Blogs';
 import { useLocation, useNavigation } from 'react-router-dom'
 import { AppContext } from '../context/AppContext';
 import { baseUrl } from '../baseUrl';
+import BlogDetails from '../components/BlogDetails';
+import Header from '../components/Header';
 
 function BlogPage() {
 
@@ -24,13 +26,11 @@ function BlogPage() {
             const data=await res.json();
             setBlog(data.blog);
             setRelatedBlogs(data.relatedBlogs);
-
         }
         catch(error){
             console.log("Error in Blog id");
             setBlog(null);
-            setRelatedBlogs(data.relatedBlogs);
-            
+            setRelatedBlogs([]);
         }
         setLoading(false);
     }
@@ -51,14 +51,14 @@ function BlogPage() {
                 {
                     loading? (<h2>Loading</h2>) : (blog? (
                         <div>
-                            <BlogDetails/>
-                            <h2>Blogs Tagged <span>#{tag}</span></h2>
+                            <BlogDetails post={blog}/>
+                            <h2>Related Blogs</h2>
                             {
                                 relatedBlogs.map((post)=>(
                                     <div><BlogDetails post={post} /></div>
                                 ))
                             }
-                            <Blogs />
+                           
                         </div>
                     ) : (<p> No Blog Found </p>))
                 }
