@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 
 function BlogDetails({post}) {
   return (
-    <div className=''>
+    <div className='mt-[50px]'>
         <NavLink to={`/blog/${post.id}`}>
-            <span>{postMessage.title}</span>
+            <span>{post.title}</span>
         </NavLink>
         <p>
             By <span>{post.author}</span> on {" "}
@@ -18,7 +18,7 @@ function BlogDetails({post}) {
         <p>{post.content}</p>
         <div>
             {post.tags.map((tag, index)=>{
-                return <NavLink key={index} to={`/tag/${tag.replaceAll(" ", "-")}`}>
+                return <NavLink key={index} to={`/tags/${tag.replaceAll(" ", "-")}`}>
                             <span>{`#${tag}`}</span>
                         </NavLink>
             })}
